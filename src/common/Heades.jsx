@@ -1,6 +1,7 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { LoginButton } from './Login'
 
 function Headers() {
   return (
@@ -13,7 +14,7 @@ function Headers() {
     </a>
     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
       <Link href={"productDetails/1"} className="mr-5  text-white">Products</Link>
-      <a className="mr-5  text-white">Login</a>
+      <LoginButton/>
       <a className="mr-5  text-white">SignUp</a>
       <a className="mr-5  text-white">About Us </a>
     </nav>
