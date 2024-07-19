@@ -1,6 +1,7 @@
 import React from 'react'
+import Link from 'next/link';
 
-function ProductCard({image,title,dis,price}) {
+function ProductCard({image,title,dis,price,id}) {
   return (
     <div className="card bg-base-100 w-96 shadow-xl">
   <figure className="px-10 pt-10">
@@ -15,7 +16,7 @@ function ProductCard({image,title,dis,price}) {
     <p>{dis}</p>
     <p>  ₹{price} </p>
     <div className="card-actions">
-      <button className="btn btn-primary">Buy Now</button>
+      <Link href={`productDetails/${id}`} className="btn btn-neutral rounded-none w-96">Buy Now</Link>
     </div>
   </div>
 </div>

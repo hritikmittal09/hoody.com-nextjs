@@ -38,7 +38,7 @@ setProducts(res.data)
   <div className=' flex flex-row gap-52 flex-wrap justify-center' >
   {ProductsList.map((product,i)=>{
     return <ProductCard key={i} image = {product.image}
-    title = {product.title} dis = {product.dis} price = {product.price}/>
+    title = {product.title} dis = {product.dis} price = {product.price} id = {product._id.toString()}/>
   })}
   </div>
   </>
