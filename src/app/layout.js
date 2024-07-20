@@ -1,6 +1,7 @@
 import { headers } from 'next/headers'
 import './globals.css'
 import Headers from '@/common/Heades'
+import { Login } from '@/common/Login'
 
 
 export const metadata = {
@@ -16,6 +17,8 @@ export default function RootLayout({ children }) {
       <head />
       <body>
         <Headers/>
+        <Login title = "Sign-up"/>
+        <Login title ="Log-in" />
         {children}</body>
     </html>
   )

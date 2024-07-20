@@ -13,7 +13,7 @@ function ProductCard({image,title,dis,price,id}) {
   </figure>
   <div className="card-body items-center text-center">
     <h2 className="card-title">{title}</h2>
-    <p>{dis}</p>
+    <p></p>
     <p>  ₹{price} </p>
     <div className="card-actions">
       <Link href={`productDetails/${id}`} className="btn btn-neutral rounded-none w-96">Buy Now</Link>

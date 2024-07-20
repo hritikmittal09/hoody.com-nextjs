@@ -36,7 +36,7 @@ setProducts(res.data)
   return (
     <>
     <HeroSection/>
-    <Login/>
+    
   <div className=' flex flex-row gap-52 flex-wrap justify-center' >
   {ProductsList.map((product,i)=>{
     return <ProductCard key={i} image = {product.image}
