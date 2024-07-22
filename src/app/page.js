@@ -9,7 +9,7 @@ import axios from 'axios'
 import { useState,useEffect } from 'react'
 import HeroSection from '@/common/HeroSection'
 import { Login } from '@/common/Login'
-
+import { revalidatePath } from 'next/cache'
 const inter = Inter({ subsets: ['latin'] })
 
 export default  function  Home() {
@@ -17,6 +17,7 @@ export default  function  Home() {
   useEffect( ()=>{
     const getproduct = async ()=>{
    // await connectDb()
+   //revalidatePath("/")
     try{
       
     const res = await axios.get('/api/Products')

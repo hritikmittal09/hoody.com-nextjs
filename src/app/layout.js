@@ -2,6 +2,8 @@ import { headers } from 'next/headers'
 import './globals.css'
 import Headers from '@/common/Heades'
 import { Login } from '@/common/Login'
+import { ToastContainer, toast } from 'react-toastify';
+  //import 'react-toastify/dist/ReactToastify.css';
 
 
 export const metadata = {
@@ -19,7 +21,10 @@ export default function RootLayout({ children }) {
         <Headers/>
         <Login title = "Sign-up"/>
         <Login title ="Log-in" />
-        {children}</body>
+        {children}
+        <ToastContainer className= ' z-50'/>
+        </body>
+        
     </html>
   )
 }
