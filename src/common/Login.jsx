@@ -3,7 +3,7 @@ import { LoginRegister } from 'actions/actions'
 import React, { useState } from 'react'
 import { Alert } from './Alerts'
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+  //import 'react-toastify/dist/ReactToastify.css';
   
 let signuporLogin = ''
 
@@ -45,8 +45,10 @@ export const  Login = ({title})=> {
     
       <form  action={ registerOrFail} className=' gap-3'> 
         {notification && <Alert message={notification}/>}
+      { title=="Sign-up" && <input type="text" placeholder="Name" name='userName' className=" rounded-none  input input-bordered w-full  mt-5" />}
       <input type="email" placeholder="Email" name='email' className=" rounded-none  input input-bordered w-full  mt-5" />
       <input type="password" placeholder="Password"  name='pas' className=" rounded-none input input-bordered w-full  mt-5 mb-5" />
+      <input type="hidden" placeholder=""  name='title' value={title} className=" rounded-none input input-bordered w-full  mt-5 mb-5" />
         <button className="btn  btn-neutral w-full rounded-none  bg-red-500" >{title}</button>
       </form>
     </div>
