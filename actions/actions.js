@@ -11,6 +11,13 @@ const title = data.get('title');
 const UserName = data.get('userName')
 const email = data.get('email');
 const password = data.get('pas');
+let isAdmin = data.get("isAdmin");
+if (isAdmin== 'on') {
+    isAdmin = true
+} else {
+    isAdmin = false
+}
+
 if (email == '' || password == '') {
 return {data : "please filll email & password "}
     
@@ -20,7 +27,7 @@ return {data : "please filll email & password "}
 await connectDb()
 if (title == 'Sign-up' ) {
     try {
-        const newuser = await new user({name : UserName, password : password,email : email,isAdmin : true});
+        const newuser = await new user({name : UserName, password : password,email : email,isAdmin : isAdmin});
         newuser.save()
         return {data : 'singup sucussful please press ESC key to continue'}
 

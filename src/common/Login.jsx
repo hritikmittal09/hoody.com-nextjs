@@ -35,7 +35,7 @@ export const  Login = ({title})=> {
     <div>
         {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
-<dialog id={title} className="modal z-10">
+<dialog id={title} className="modal ">
   <div className="modal-box w-full ">
     <h3 className="font-bold text-lg"> {title}</h3>
     
@@ -49,6 +49,14 @@ export const  Login = ({title})=> {
       <input type="email" placeholder="Email" name='email' className=" rounded-none  input input-bordered w-full  mt-5" />
       <input type="password" placeholder="Password"  name='pas' className=" rounded-none input input-bordered w-full  mt-5 mb-5" />
       <input type="hidden" placeholder=""  name='title' value={title} className=" rounded-none input input-bordered w-full  mt-5 mb-5" />
+      {title=="Sign-up"  && <div>
+        <div className="form-control">
+  <label className="cursor-pointer label">
+    <span className="label-text">Sign-up as Admin</span>
+    <input name='isAdmin' type="checkbox"  className="checkbox checkbox-accent" />
+  </label>
+</div>
+</div>}
         <button className="btn  btn-neutral w-full rounded-none  bg-red-500" >{title}</button>
       </form>
     </div>
