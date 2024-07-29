@@ -1,7 +1,8 @@
 "use server"
 import { connectDb } from "@/db/db";
 import user from "@/models/user"
-import mongoose from "mongoose";
+import  jwt from 'jsonwebtoken' 
+import { cookies } from "next/headers";
 
 
 
@@ -29,6 +30,7 @@ if (title == 'Sign-up' ) {
     try {
         const newuser = await new user({name : UserName, password : password,email : email,isAdmin : isAdmin});
         newuser.save()
+        
         return {data : 'singup sucussful please press ESC key to continue'}
 
     } catch (error) {
@@ -47,6 +49,18 @@ try {
             return {data : "wrong password !!"}
             
         }
+        const {id,isAdmin} =userexist[0]
+        const payload = {
+            id,
+            isAdmin
+        }
+       const token =  await jwt.sign(payload,process.env.SECRET_KEY)
+       //console.log(token);
+       cookies().set("auth", token)
+       cookies().getAll()
+
+
+        
         //console.log("user exist");
         return {data : 'Login sucussful please press ESC key to continue'}
     
