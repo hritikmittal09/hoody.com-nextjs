@@ -3,6 +3,7 @@ import './globals.css'
 import Headers from '@/common/Heades'
 import { Login } from '@/common/Login'
 import { ToastContainer, toast } from 'react-toastify';
+import { AboutDilog } from '@/common/About';
   //import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -21,8 +22,9 @@ export default function RootLayout({ children }) {
         <Headers/>
         <Login title = "Sign-up"/>
         <Login title ="Log-in" />
+        <AboutDilog/>
         {children}
-        <ToastContainer className= ' z-50'/>
+        
         </body>
         
     </html>
