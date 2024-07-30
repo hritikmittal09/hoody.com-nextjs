@@ -10,6 +10,7 @@ import { useState,useEffect } from 'react'
 import HeroSection from '@/common/HeroSection'
 import { Login } from '@/common/Login'
 import { revalidatePath } from 'next/cache'
+import { AddProductBut } from '@/common/AddProduct'
 const inter = Inter({ subsets: ['latin'] })
 
 export default  function  Home() {
@@ -36,6 +37,7 @@ setProducts(res.data)
   
   return (
     <>
+    <AddProductBut/>
     <HeroSection/>
     
   <div className=' flex flex-row gap-52 flex-wrap justify-center' >

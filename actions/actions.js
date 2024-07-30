@@ -1,6 +1,8 @@
 "use server"
 import { connectDb } from "@/db/db";
+import product from "@/models/prodcts";
 import user from "@/models/user"
+import { data } from "autoprefixer";
 import  jwt from 'jsonwebtoken' 
 import { cookies } from "next/headers";
 
@@ -57,7 +59,7 @@ try {
        const token =  await jwt.sign(payload,process.env.SECRET_KEY)
        //console.log(token);
        cookies().set("auth", token)
-       cookies().getAll()
+       
 
 
         
@@ -84,4 +86,23 @@ try {
 
 
 
+}
+export const AddProductionAction =async (Product)=>{
+try {
+    const img =Product.get('imageUrl')
+    const title = Product.get('title')
+    const price = Product.get('price')
+    const dis = Product.get('description')
+    console.log(title);
+    await connectDb()
+    const newProdoct = await new product({image : img,dis : dis, title,title,price : price})
+   await newProdoct.save()
+       return {data : "Product saved sucessfully"}
+
+
+} catch (error) {
+    console.log(error);
+    return{data :"someting went wrong please try again leter !!"}
+    
+}
 }
