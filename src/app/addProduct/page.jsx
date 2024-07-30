@@ -1,17 +1,25 @@
 'use client'
 import { Alert } from "@/common/Alerts"
 import { AddProductionAction } from "actions/actions"
+import { redirect } from "next/navigation"
 import { useState } from "react"
+import { useNavigate} from "react-router-dom"
+
 
 function AddProductPage (){
     
+    //const router = useNavigate()
     const [Notification,setnotifi] = useState(null)
     const onSubmit = async (Product)=>{
 try {
     const res = await AddProductionAction(Product)
     setnotifi(res.data)
     
-    console.log(res);
+    setTimeout(()=>{
+        setnotifi(null)
+      //  router("/")
+
+    },5000)
     
 } catch (error) {
     
