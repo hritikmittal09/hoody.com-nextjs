@@ -14,7 +14,7 @@ function Headers() {
       <span className="ml-3 text-xl text-white">Hoddy.com </span>
     </a>
     <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-      <Link href={"productDetails/1"} className="mr-5  text-white">Products</Link>
+      <Link href={"/"} className="mr-5  text-white">Products</Link>
       <LoginButton title = "Log-in"/>
       <LoginButton title = "Sign-up" />
       <AboutButton/>

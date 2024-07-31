@@ -15,6 +15,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default  function  Home() {
   const [ProductsList,setProducts] =  useState([]);
+  const [isAdmin,setIsamin] = useState(false)
+
   useEffect( ()=>{
     const getproduct = async ()=>{
    // await connectDb()
@@ -22,10 +24,14 @@ export default  function  Home() {
     try{
       
     const res = await axios.get('/api/Products')
+    const Admin = await axios.get("/api/adminAuth")
+
 
 //console.log(res.data);
 
 setProducts(res.data)
+setIsamin(Admin.data)
+//console.log(Admin.data);
     }catch(error){
       console.log(error);
     }
@@ -37,7 +43,7 @@ setProducts(res.data)
   
   return (
     <>
-    <AddProductBut/>
+    {isAdmin && <AddProductBut/>}
     <HeroSection/>
     
   <div className=' flex flex-row gap-52 flex-wrap justify-center' >

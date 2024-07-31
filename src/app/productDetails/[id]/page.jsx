@@ -1,5 +1,6 @@
 'use client'
 import axios from 'axios';
+import { redirect } from 'next/navigation';
 import React from 'react';
 import { useEffect,useState } from 'react';
 import CheckoutButton from 'Paymets/CheckoutButton';
@@ -7,12 +8,16 @@ import CheckoutButton from 'Paymets/CheckoutButton';
 
 
 
-function ProductDetails({params}) {
+  function ProductDetails({params}) {
  const [ProductDetails,setPeoduct] = useState({})
+ //const [login,setlogin] = useState(false)
+ 
+
  //const [Products,setPeoducts] = useState([])
  useEffect(()=>{
   const fetchProducts = async ()=>{
 const res = await axios.get('/api/Products')
+
 const AllProducts = res.data ;
 //console.log(AllProducts);
 const productId =params.id;
