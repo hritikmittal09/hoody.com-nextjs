@@ -11,11 +11,14 @@ import HeroSection from '@/common/HeroSection'
 import { Login } from '@/common/Login'
 import { revalidatePath } from 'next/cache'
 import { AddProductBut } from '@/common/AddProduct'
+import Loading from './loading'
 const inter = Inter({ subsets: ['latin'] })
+
 
 export default  function  Home() {
   const [ProductsList,setProducts] =  useState([]);
   const [isAdmin,setIsamin] = useState(false)
+  const [loading,setLoag] =useState(true)
 
   useEffect( ()=>{
     const getproduct = async ()=>{
@@ -25,12 +28,15 @@ export default  function  Home() {
       
     const res = await axios.get('/api/Products')
     const Admin = await axios.get("/api/adminAuth")
+    
+ 
 
 
 //console.log(res.data);
 
 setProducts(res.data)
 setIsamin(Admin.data)
+setLoag(false)
 //console.log(Admin.data);
     }catch(error){
       console.log(error);
@@ -41,6 +47,9 @@ setIsamin(Admin.data)
   
 
   
+  if (loading) {
+    return <Loading/>
+  }
   return (
     <>
     {isAdmin && <AddProductBut/>}

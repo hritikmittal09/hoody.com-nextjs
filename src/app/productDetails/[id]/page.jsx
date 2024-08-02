@@ -4,12 +4,15 @@ import { redirect } from 'next/navigation';
 import React from 'react';
 import { useEffect,useState } from 'react';
 import CheckoutButton from 'Paymets/CheckoutButton';
+import Loading from "../../loading"
 
 
 
 
   function ProductDetails({params}) {
  const [ProductDetails,setPeoduct] = useState({})
+ const [loading,setLoag] =useState(true)
+
  //const [login,setlogin] = useState(false)
  
 
@@ -25,6 +28,8 @@ AllProducts.find((product)=>{
   if (product._id == productId) {
     //console.log(product);
     setPeoduct(product)
+  
+    setLoag(false)
     return
     
   }
@@ -33,7 +38,10 @@ AllProducts.find((product)=>{
   fetchProducts()
  },[]) 
  
-  return (
+ if (loading) {
+  return <Loading/>
+ } 
+ return (
     <>
   <section className="text-gray-600 body-font">
     <div className="container mx-auto px-5 py-24">

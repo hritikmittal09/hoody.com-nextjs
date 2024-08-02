@@ -1,11 +1,11 @@
 import React from 'react'
 
-function loading() {
+function Loading() {
   return (
-    <div className=' flex justify-center items-center  w-full h-16'>
-        <span className="loading loading-spinner text-error"></span>
+    <div className=' flex justify-center items-center  w-full h-full  text-2xl'>
+        <div className="loading loading-spinner loading-lg m-auto flex justify-center text-center text-error my-52"></div>
     </div>
   )
 }
 
-export default loading
+export default Loading
